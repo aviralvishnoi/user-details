@@ -74,6 +74,8 @@ const AddUser = (props) => {
             // value={enteredUserName}
             // onChange={userNameChangeHandler}
             ref={nameInputRef}
+            // refs are uncontrolled components (not controlled by react)
+            // states are controlled components (controlled by react)
           />
           <label htmlFor="age">Age (Years)</label>
           <input
