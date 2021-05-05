@@ -3,6 +3,7 @@ import Card from "../UI/Card";
 import classes from "./AddUser.module.css";
 import Button from "../UI/Button";
 import ErrorModal from "../UI/ErrorModal";
+import Wrapper from "../Helpers/Wrapper";
 
 const AddUser = (props) => {
   const [enteredUserName, setEnteredUserName] = useState("");
@@ -26,7 +27,7 @@ const AddUser = (props) => {
       return;
     }
     props.onAddUser(enteredUserName, enteredAge);
-    // console.log(enteredUserName, enteredAge);
+
     setEnteredUserName("");
     setEnteredAge("");
   };
@@ -42,8 +43,13 @@ const AddUser = (props) => {
   const errorHandler = () => {
     setError(null);
   };
+
   return (
-    <div>
+    // <div> can be replaced with
+    // <> or <React.Fragment>
+    // or <Fragment> if imported like import {Fragment} from 'react';
+    // or with a custom component like Wrapper
+    <Wrapper>
       {error && (
         <ErrorModal
           title={error.title}
@@ -70,7 +76,7 @@ const AddUser = (props) => {
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </div>
+    </Wrapper>
   );
 };
 
